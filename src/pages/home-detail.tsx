@@ -1,27 +1,7 @@
 import { useEffect, useRef, useState } from "react";
-import Box from '@mui/material/Box';
-import Modal from '@mui/material/Modal';
-import ClearIcon from '@mui/icons-material/Clear';
-import { useNavigate } from "react-router-dom";
-import * as React from 'react';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
-import TextField from '@mui/material/TextField';
-import CalendarMenu from "../components/calendar-menu";
+import InfosHotel from "../components/infos-hotel";
+import ReverserMenu from "../components/reverser-menu";
 
-
-
-const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '80%',
-    transform: 'translate(-50%, -50%)',
-    width: '40%',
-    height: '100vh',
-    bgcolor: 'background.paper',
-};
 
 const contents = [
     { name: "le corth", color: '#C1780A', image: "https://images.prismic.io/clos-des-sens/4bb2ede9-e957-4421-ac09-6f7ea3b5273e_Visual.png?auto=compress%2Cformat&rect=0%2C1%2C639%2C1078&h=1080&q=80&width=1920" },
@@ -33,15 +13,6 @@ const contents = [
 ];
 
 export default function InfiniteScrollList() {
-
-    const [age, setAge] = React.useState('');
-
-    const handleChange = (event: SelectChangeEvent) => {
-        setAge(event.target.value);
-    };
-
-    const navigate = useNavigate();
-
 
     const listRef = useRef<HTMLDivElement | null>(null);
     const [activeIndexes, setActiveIndexes] = useState<number[]>([]);
@@ -58,7 +29,7 @@ export default function InfiniteScrollList() {
     const handleCloseInfos = () => setOpenInfos(false);
 
     const handleOpenChambre = () => {
-        handleCloseReverser(); // Đóng modal reverser trước
+        handleCloseReverser();
         setTimeout(() => {
             setOpenChambre(true);
         }, 100);
@@ -78,7 +49,6 @@ export default function InfiniteScrollList() {
 
             const scrollPosition = listElement.scrollTop;
             const containerHeight = listElement.clientHeight;
-            const centerY = scrollPosition + containerHeight / 2;
 
             const newActiveIndexes: number[] = [];
             const items = listElement.querySelectorAll("li");
@@ -114,14 +84,13 @@ export default function InfiniteScrollList() {
 
     return (
         <div className="flex flex-row relative">
-            {/* Danh sách nội dung */}
             <div
                 ref={listRef}
                 className="h-screen overflow-y-scroll transition-all duration-700 no-scrollbar basis-2/3 relative bg-[url(https://closdessens.com/img/grain.png)]"
                 style={{
                     scrollbarWidth: "none",
                     msOverflowStyle: "none",
-                    backgroundColor: contents[activeIndex].color, // Đặt màu nền theo nội dung đang active
+                    backgroundColor: contents[activeIndex].color,
                     opacity: '30',
                 }}
             >
@@ -140,7 +109,6 @@ export default function InfiniteScrollList() {
                     )}
                 </ul>
             </div>
-            {/* Background thay đổi dựa trên nội dung */}
             <div
                 className="h-screen w-full basis-1/3 transition-all duration-700 relative z-10 flex flex-col justify-end"
                 style={{
@@ -149,12 +117,10 @@ export default function InfiniteScrollList() {
                     backgroundPosition: "center",
                 }}
             >
-                {/* Tiêu đề */}
                 <h1 className="pl-50 mb-5 text-[25px] uppercase text-white font-[50]" style={{ fontFamily: "'Poppins', serif" }}>
                     Clos des<span className="font-[500]"> sens</span>
                 </h1>
 
-                {/* Nút điều hướng */}
                 <div className="absolute top-[43%] right-[18px] flex flex-col gap-25 -translate-y-1/2">
                     <button
                         className="duration-300 text-white px-6 py-1.5 transition-all cursor-pointer uppercase -rotate-90 origin-right"
@@ -165,132 +131,15 @@ export default function InfiniteScrollList() {
                     >
                         Réverser
                     </button>
-                    <Modal
-                        open={openReverser}
-                        onClose={handleCloseReverser}
-                        aria-labelledby="modal-modal-reverser"
-                        aria-describedby="modal-modal-description"
-                    >
-                        <Box sx={{
-                            ...style,
-                            bgcolor: contents[activeIndex].color,
-                        }}>
-                            <div className="flex flex-col items-center justify-center h-full w-full">
-                                <div
-                                    onClick={() => navigate("/booking")}
-                                    style={{ fontFamily: "'Playfair Display', serif" }}
-                                    className="uppercase h-[20%] cursor-pointer w-3/4 flex items-center justify-center text-4xl text-white">
-                                    Reverse une table
-                                </div>
-                                <div
-                                    onClick={handleOpenChambre}
-                                    style={{ fontFamily: "'Playfair Display', serif" }}
-                                    className="uppercase h-[20%] cursor-pointer w-3/4 flex items-center justify-center text-4xl text-white">
-                                    Reverse une chambre
-                                </div>
-
-                            </div>
-                            <div
-                                onClick={handleCloseReverser}
-                                className="text-4xl absolute top-0 right-0 p-15 cursor-pointer">
-                                <ClearIcon sx={{ fontSize: '40px', color: 'white' }} />
-                            </div>
-                        </Box>
-                    </Modal>
-                    <Modal
-                        open={openChambre}
-                        onClose={handleCloseChambre}
-                        aria-labelledby="modal-modal-chambre"
-                        aria-describedby="modal-modal-description"
-                    >
-                        <Box sx={{
-                            position: 'absolute',
-                            top: '50%',
-                            left: '70%',
-                            transform: 'translate(-50%, -50%)',
-                            width: '60%',
-                            height: '100vh',
-                            bgcolor: 'background.paper',
-                        }}>
-                            {/* <div className="flex flex-col items-center justify-center h-full w-full">
-                                <div
-                                    style={{ fontFamily: "'Playfair Display', serif" }}
-                                    className="uppercase h-[50%] cursor-pointer w-1/2 flex items-center justify-center text-4xl">
-                                    Reverse une table
-                                </div>
-                                <div
-                                    style={{ fontFamily: "'Playfair Display', serif" }}
-                                    className="uppercase h-[50%] cursor-pointer w-1/2 flex items-center justify-center text-4xl">
-                                    Reverse une chambre
-                                </div>
-                            </div> */}
-
-
-                            <div className="flex flex-col h-full w-f">
-                                <div className="relative left-8 flex basis-1/4 h-full w-full p-2">
-                                    <div className="h-full w-1/3 flex items-start justify-center flex-col">
-                                        <h4>Nombre d'adultes</h4>
-                                        <FormControl sx={{ minWidth: 180 }} size="small">
-                                            <InputLabel id="demo-select-small-label"></InputLabel>
-                                            <Select
-                                                labelId="demo-select-small-label"
-                                                id="demo-select-small"
-                                                value={age}
-                                                onChange={handleChange}
-                                            >
-                                                <MenuItem value="">
-                                                    <em>None</em>
-                                                </MenuItem>
-                                                <MenuItem value={10}>Ten</MenuItem>
-                                                <MenuItem value={20}>Twenty</MenuItem>
-                                                <MenuItem value={30}>Thirty</MenuItem>
-                                            </Select>
-                                        </FormControl>
-                                    </div>
-                                    <div className="h-full w-1/3 flex items-start justify-center flex-col">
-                                        <h4>Nombre d'enfants</h4>
-                                        <FormControl sx={{ minWidth: 180 }} size="small">
-                                            <InputLabel id="demo-select-small-label"></InputLabel>
-                                            <Select
-                                                labelId="demo-select-small-label"
-                                                id="demo-select-small"
-                                                value={age}
-                                                onChange={handleChange}
-                                            >
-                                                <MenuItem value="">
-                                                    <em>None</em>
-                                                </MenuItem>
-                                                <MenuItem value={10}>Ten</MenuItem>
-                                                <MenuItem value={20}>Twenty</MenuItem>
-                                                <MenuItem value={30}>Thirty</MenuItem>
-                                            </Select>
-                                        </FormControl>
-                                    </div>
-                                    <div className="h-full w-1/3 flex items-start justify-center flex-col">
-                                        <h4>Code promo</h4>
-                                        <TextField size="small" id="outlined-basic" variant="outlined" />
-                                    </div>
-                                </div>
-                                <div className="flex h-full w-fullp-2">
-                                    <div className="h-full w-1/2">
-                                        <CalendarMenu />
-                                    </div>
-                                    <div className="h-full w-1/2">
-                                        <CalendarMenu />
-                                    </div>
-                                </div>
-                            </div>
-
-
-
-                            <div
-                                onClick={handleCloseChambre}
-                                className="text-4xl absolute top-0 right-0 p-5 cursor-pointer">
-                                <ClearIcon sx={{ fontSize: '40px' }} />
-                            </div>
-                        </Box>
-                    </Modal>
-
+                    <ReverserMenu
+                        contents={contents}
+                        activeIndex={activeIndex}
+                        handleCloseChambre={handleCloseChambre}
+                        handleOpenChambre={handleOpenChambre}
+                        handleCloseReverser={handleCloseReverser}
+                        openReverser={openReverser}
+                        openChambre={openChambre}
+                    />
                     <button
                         className="duration-300 text-white cursor-pointer px-6 py-1.5 transition-all uppercase -rotate-90 origin-right"
                         style={{
@@ -300,52 +149,12 @@ export default function InfiniteScrollList() {
                     >
                         Infos
                     </button>
-
-                    <Modal
-                        open={openInfos}
-                        onClose={handleCloseInfos}
-                        aria-labelledby="modal-modal-infos"
-                        aria-describedby="modal-modal-description"
-                    >
-                        <Box sx={{
-                            ...style,
-                            bgcolor: contents[activeIndex].color,
-                        }}>
-                            <div className="flex flex-col items-center justify-center h-full w-full">
-                                <div
-                                    style={{ fontFamily: "'Playfair Display', serif" }}
-                                    className="uppercase h-[12%] w-3/4 flex items-center justify-center text-4xl text-white">
-                                    Restaurant
-                                </div>
-                                <div
-                                    style={{ fontFamily: "'Playfair Display', serif" }}
-                                    className="uppercase h-[12%] w-3/4 flex items-center justify-center text-4xl text-white">
-                                    L'hotel
-                                </div>
-                                <div
-                                    style={{ fontFamily: "'Playfair Display', serif" }}
-                                    className="uppercase h-[12%] w-3/4 flex items-center justify-center text-4xl text-white">
-                                    Offir
-                                </div>
-                                <div
-                                    style={{ fontFamily: "'Playfair Display', serif" }}
-                                    className="uppercase h-[12%] w-3/4 flex items-center justify-center text-4xl text-white">
-                                    Presse
-                                </div>
-                                <div
-                                    style={{ fontFamily: "'Playfair Display', serif" }}
-                                    className="uppercase h-[12%] w-3/4 flex items-center justify-center text-4xl text-white">
-                                    Recrutement
-                                </div>
-                            </div>
-                            <div
-                                onClick={handleCloseInfos}
-                                className="text-4xl absolute top-0 right-0 p-15 cursor-pointer">
-                                <ClearIcon sx={{ fontSize: '40px', color: 'white' }} />
-                            </div>
-                        </Box>
-                    </Modal>
-
+                    <InfosHotel
+                        handleCloseInfos={handleCloseInfos}
+                        openInfos={openInfos}
+                        contents={contents}
+                        activeIndex={activeIndex}
+                    />
                 </div>
             </div>
 
