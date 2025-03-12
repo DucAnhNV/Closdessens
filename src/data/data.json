@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "name": "relais & chateaux",
+        "link": "https://www.relaischateaux.com/",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTT_2g-Zr9PRxfdK4dL7cLogKcSYrcoOfBKJg&s"
+    },
+    {
+        "id": 2,
+        "name": "michelin",
+        "link": "https://guide.michelin.com/vn/en",
+        "image": "https://www.littlepalmisland.com/wp-content/uploads/2024/10/3-Keys-White-1.png"
+    },
+    {
+        "id": 3,
+        "name": "les grand tables du monde",
+        "link": "https://lesgrandestablesdumonde.com/",
+        "image": "https://lesgrandestablesdumonde.com/wp-content/uploads/2018/05/logo_GTDM_blanc.png"
+    },
+    {
+        "id": 4,
+        "name": "college-culinaire-de-france",
+        "link": "https://college-culinaire-de-france.fr/",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKn8ws8jZAmO1WzEjBDCjCewm1YqRgXMxK4Q&s"
+    },
+    {
+        "id": 5,
+        "name": "gault & millau",
+        "link": "https://fr.gaultmillau.com/fr/",
+        "image": "https://www.restaurant-ranglisten.de/fileadmin/_processed_/2/1/csm_GM_sw_0768e83340.jpg"
+    },
+    {
+        "id": 6,
+        "name": "écotable",
+        "link": "https://ecotable.fr/",
+        "image": "https://www.glaces-glazed.com/wp-content/uploads/2022/02/logoecotable.png"
+    }
+]
