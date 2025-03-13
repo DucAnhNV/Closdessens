@@ -12,6 +12,7 @@ import CalendarBooking from "../components/calendar-booking";
 import { useNavigate } from "react-router-dom";
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import React from 'react';
+import '../styles/style.css'
 
 
 interface ReverserMenuProps {
@@ -23,18 +24,6 @@ interface ReverserMenuProps {
     contents: { name: string; color: string; image: string }[];
     activeIndex: number;
 }
-
-
-
-const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '80%',
-    transform: 'translate(-50%, -50%)',
-    width: '40%',
-    height: '100vh',
-    bgcolor: 'background.paper',
-};
 
 const ReverserMenu: React.FC<ReverserMenuProps> = ({
     contents,
@@ -61,10 +50,9 @@ const ReverserMenu: React.FC<ReverserMenuProps> = ({
                 aria-labelledby="modal-modal-reverser"
                 aria-describedby="modal-modal-description"
             >
-                <Box sx={{
-                    ...style,
-                    bgcolor: contents[activeIndex].color,
-                }}>
+                <Box
+                    className="modal-style"
+                    sx={{ bgcolor: contents[activeIndex].color, }}>
                     <div className="flex flex-col items-center justify-center h-full w-full">
                         <div
 

@@ -4,20 +4,11 @@ import Box from '@mui/material/Box';
 import { useState } from 'react';
 import RestaurantContents from './contents-infos/restaurant-content/restaurant';
 import HotelContents from './contents-infos/restaurant-content/hotel';
+import '../styles/style.css'
 // import HotelContents from './contents-infos/hotel-content/hotel';
 // import OffirContents from './contents-infos/offir-content/offir';
 // import PresseContents from './contents-infos/presse-content/presse';
 // import RecruitmentContents from './contents-infos/recruitment-content/recruitment';
-
-const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '80%',
-    transform: 'translate(-50%, -50%)',
-    width: '40%',
-    height: '100vh',
-    bgcolor: 'background.paper',
-};
 
 interface InfosHotelProps {
     handleCloseInfos: () => void;
@@ -51,10 +42,11 @@ const InfosHotel: React.FC<InfosHotelProps> = ({ handleCloseInfos, openInfos, co
                 aria-labelledby="modal-modal-infos"
                 aria-describedby="modal-modal-description"
             >
-                <Box sx={{
-                    ...style,
-                    bgcolor: contents[activeIndex].color,
-                }}>
+                <Box
+                    className="modal-style"
+                    sx={{
+                        bgcolor: contents[activeIndex].color,
+                    }}>
                     <div className="flex flex-col items-center justify-center h-full w-full cursor-pointer">
                         {lists_content.map((items, index) => (
                             <div

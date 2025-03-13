@@ -1,6 +1,7 @@
 import ClearIcon from '@mui/icons-material/Clear';
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
+import "../../../styles/style.css"
 
 interface HotelContentProps {
     handleCloseHotel: () => void;
@@ -8,18 +9,6 @@ interface HotelContentProps {
     contents: { name: string; color: string; image: string }[];
     activeIndex: number;
 }
-
-const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '80%',
-    transform: 'translate(-50%, -50%)',
-    width: '40%',
-    height: '100vh',
-    bgcolor: 'background.paper',
-    boxShadow: 24,
-    p: 4,
-};
 
 const HotelContents: React.FC<HotelContentProps> = ({ handleCloseHotel, openHotel, contents, activeIndex }) => {
     return (
@@ -29,7 +18,9 @@ const HotelContents: React.FC<HotelContentProps> = ({ handleCloseHotel, openHote
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description"
         >
-            <Box sx={{ ...style, bgcolor: contents[activeIndex].color }}>
+            <Box
+                className="modal-style"
+                sx={{ bgcolor: contents[activeIndex].color }}>
                 <div className="text-center text-3xl font-bold text-gray-800">
                     {contents[activeIndex].name}
                 </div>

@@ -1,0 +1,61 @@
+{
+    "contents": [
+        {
+            "name": "le cortil",
+            "color": "#C1780A",
+            "image": "https://images.prismic.io/clos-des-sens/4bb2ede9-e957-4421-ac09-6f7ea3b5273e_Visual.png?auto=compress%2Cformat&rect=0%2C1%2C639%2C1078&h=1080&q=80&width=1920"
+        },
+        {
+            "name": "episodes",
+            "color": "#272727",
+            "image": "https://images.prismic.io/clos-des-sens/844be73a-1842-45ac-9aa1-45f756356e3e_Cover_Episodes.jpg?auto=compress%2Cformat&rect=1747%2C0%2C1280%2C2160&h=1080&q=80&width=1920"
+        },
+        {
+            "name": "la table",
+            "color": "#343A45",
+            "image": "https://images.prismic.io/clos-des-sens/06d5f1f3-49a3-439c-a6a9-58d75489e021_CLOS-DES-SENS-MATTHIEU-CELLARD-SALLE-38.jpg?auto=format%2Ccompress&rect=104%2C0%2C2100%2C3543&h=1080&q=80&width=1920"
+        },
+        {
+            "name": "rêver",
+            "color": "#774922",
+            "image": "https://images.prismic.io/clos-des-sens/9040ebcf-7e35-430e-a718-937dad029ba7_clos-des-sens-juillet-2023-personnage-50.jpg?auto=format%2Ccompress&rect=175%2C0%2C2799%2C4724&h=1080&q=80&width=1920"
+        },
+        {
+            "name": "le jardin",
+            "color": "#273D1C",
+            "image": "https://images.prismic.io/clos-des-sens/be844b16-75e6-4f3e-bc40-3cd854a02c56_le-clos-des-sens-juin-2022-cortil-jardin-69.jpg?auto=compress%2Cformat&rect=1150%2C0%2C1633%2C2756&h=1080&q=80&width=1920"
+        },
+        {
+            "name": "l'âme",
+            "color": "#2F2F2F",
+            "image": "https://images.prismic.io/clos-des-sens/53c6c28d-7be5-45a7-bde1-b1d9e83c1ba6_le-clos-des-sens-juin-2022-portrait-31.jpg?auto=compress%2Cformat&rect=2166%2C997%2C3205%2C5409&h=1080&q=80&width=1920"
+        }
+    ],
+    "lists": [
+        "Réserver une table",
+        "La carte",
+        "Les vins",
+        "Infos & Accès",
+        "Contact"
+    ],
+    "dish_list": [
+        {
+            "name": "Pour voir",
+            "quanity": "4",
+            "price": "158.00",
+            "description": "Disponible les déjeuners de semaine toute l'année, hors Juillet-août et jours fériés."
+        },
+        {
+            "name": "Plein d'Envies",
+            "quanity": "7",
+            "price": "238.00",
+            "description": "Disponible les déjeuners et dîners toute l'année, hors vendredi soir, samedi soir et soirées spéciales."
+        },
+        {
+            "name": "Grande Fete",
+            "quanity": "9",
+            "price": "288.00",
+            "description": "Disponible toute l'année à chaque service, hors soirées spéciales"
+        }
+    ]
+}

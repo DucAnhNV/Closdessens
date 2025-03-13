@@ -1,0 +1,9 @@
+.modal-style {
+    position: absolute;
+    top: 50%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+    width: 40%;
+    height: 100vh;
+    background-color: white;
+}
